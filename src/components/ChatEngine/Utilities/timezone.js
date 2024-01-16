@@ -19,8 +19,13 @@ export function getDateTime(date, offset) {
 const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }
 
 export function formatTime(dateTime) {
-    var time = dateTime.toLocaleString('nl-NL')
-    return time.split(' ')[1].slice(0, -3) + ' ' + time.slice(-2)
+  var time = dateTime.toLocaleString('nl-NL', {
+    hour12: false,
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  return time;
 }
 
 export function formatDate(dateTime) {
